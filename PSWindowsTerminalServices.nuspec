@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>PSWindowsTerminalServices</id>
+        <title>PowerShell module for interacting with WTS API</title>
+        <version>1.0.0</version>
+        <authors>Cameron Sowder</authors>
+        <owners>Cameron Sowder</owners>
+        <description>PowerShell module for interacting with WTS API via PInvoke (No more qwinsta!)</description>
+        <dependencies></dependencies>
+    </metadata>
+    <files>
+        <file src="src\**" target="" />
+        <file src="src\commands\**" target="commands" />
+        <file src="src\win32\**" target="win32" />
+    </files>
+</package>

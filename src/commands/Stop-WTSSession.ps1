@@ -10,8 +10,14 @@ function Stop-WTSSession {
     [CmdletBinding()]
     [OutputType([PSCustomObject[]])]
     param(
+        [Parameter(Mandatory = $false, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, HelpMessage = 'Computer that the user is logged into to.')]
         [string] $ComputerName = [Environment]::MachineName,
+
+        [Parameter(Mandatory = $true, HelpMessage = 'Session ID of the user to logoff.')]
+        [ValidateRange(0, [int]::MaxValue)]
         [int] $SessionId,
+
+        [Parameter(Mandatory = $false, HelpMessage = 'Wait for loggoff completion.')]
         [switch] $Wait
     );
     begin {

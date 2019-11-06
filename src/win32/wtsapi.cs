@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+
 public enum WTS_CONNECTSTATE_CLASS {
     WTSActive,
     WTSConnected,
