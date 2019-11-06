@@ -6,7 +6,7 @@ using namespace System.Runtime.InteropServices;
 
 Set-StrictMode -Version 'Latest';
 
-function Get-WTSSessions {
+function Get-WTSSession {
     [CmdletBinding()]
     [OutputType([ValueType[]])]
     param(

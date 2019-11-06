@@ -148,6 +148,9 @@ public static class wtsapi {
 
     [DllImport("wtsapi32.dll", SetLastError = true)]
     public static extern IntPtr WTSOpenServer(string pServerName);
+    
+    [DllImport("wtsapi32.dll", SetLastError = true)]
+    static extern bool WTSDisconnectSession(IntPtr hServer, int sessionId, bool bWait);
 
     [DllImport("wtsapi32.dll", SetLastError = true)]
     public static extern void WTSCloseServer(IntPtr hServer);
