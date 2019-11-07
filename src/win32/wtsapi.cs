@@ -17,6 +17,7 @@ public enum WTS_CONNECTSTATE_CLASS {
 [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
 public struct WTSINFOEX_LEVEL1_W {
     public Int32 SessionId;
+
     public WTS_CONNECTSTATE_CLASS SessionState;
 
     // 0 = locked, 1 = unlocked , ffffffff = unknown
@@ -158,6 +159,9 @@ public static class wtsapi {
 
     [DllImport("wtsapi32.dll", SetLastError = true)]
     public static extern void WTSFreeMemory(IntPtr pMemory);
+
+    [DllImport("wtsapi32.dll", SetLastError = true)]
+    static extern bool WTSLogoffSession(IntPtr hServer, int SessionId, bool bWait);
 
     [DllImport("wtsapi32.dll", SetLastError = true)]
     public static extern bool WTSSendMessage(

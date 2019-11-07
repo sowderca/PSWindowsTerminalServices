@@ -21,7 +21,7 @@ function Get-WTSSession {
         [long] $bytes              = 0;
         $wtsInfoEx                 = New-Object -TypeName 'WTSINFOEX';
         $wtsSessionInfo            = New-Object -TypeName 'WTS_SESSION_INFO';
-        [int] $size            = [Marshal]::SizeOf([type] $wtsSessionInfo.GetType());
+        [int] $size                = [Marshal]::SizeOf([type] $wtsSessionInfo.GetType());
         [List[ValueType]] $results = @();
     } process {
         try {
@@ -74,6 +74,6 @@ function Get-WTSSession {
             }
         }
     } end {
-        return $results;
+        return $results.ToArray();
     }
 }

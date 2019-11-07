@@ -37,11 +37,14 @@ function Send-WTSSessionMessage {
         $response = $null;
         [IntPtr] $handle = [wtsapi]::WTSOpenServer($ComputerName);
         [void] [wtsapi]::WTSSendMessage($handle, $SessionId, $Title, $Title.Length, $Message, $Message.Length, 0, $Timeout, [ref] $response, $WaitForResponse.ToBool());
-        [PSCustomObject] $result = [PSCustomObject] @{ Response  = $response; SessionId = $SessionId; };
+        [PSCustomObject] $result = [PSCustomObject] @{
+            Response  = $response;
+            SessionId = $SessionId;
+        };
         [void] $results.Add($result);
         [void] [wtsapi]::WTSCloseServer($handle);
         $handle = [IntPtr]::Zero;
     } end {
-        return $results;
+        return $results.ToArray();
     }
 }
